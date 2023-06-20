@@ -15,6 +15,7 @@
       <br />
       <label for="language">Select Language:</label>
       <select name="language" id="language" required>
+        <option value="en">en</option>
         {% for lang in languages %}
         <option value="{{ lang }}">{{ lang }}</option>
         {% endfor %}
@@ -27,19 +28,6 @@
         {% endfor %}
       </select>
       <br />
-
-      <label for="voice">Select Voice:</label>
-      <select name="voice" id="voice" required>
-        {% if language %}
-          {% for lang_code, lang_name in languages.items() %}
-            {% if lang_code.startswith(language) %}
-              {% for voice_code, voice_name in lang_name.items() %}
-                <option value="{{ voice_code }}">{{ voice_name['name'] }}</option>
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      </select>
       
       <input type="submit" value="Convert" />
     </form>
