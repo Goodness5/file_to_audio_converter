@@ -1,0 +1,4 @@
+flask
+pyttsx3
+textract
+python-docx

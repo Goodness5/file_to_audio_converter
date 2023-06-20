@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play or Download Audio</title>
+</head>
+<body>
+    <h1>Play or Download Audio</h1>
+    <p>Your file has been converted. What would you like to do?</p>
+    <a href="{{ url_for('play', filename=filename) }}">Play Audio</a> |
+    <a href="{{ url_for('download', filename=filename) }}" download>Download Audio</a>
+</body>
+</html>
