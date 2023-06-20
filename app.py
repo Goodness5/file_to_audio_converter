@@ -1,8 +1,9 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, send_file
-import pyttsx3
 from werkzeug.utils import secure_filename
+from gtts import gTTS
 import uuid
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -15,20 +16,19 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
 def text_to_speech(text, audio_format):
-    engine = pyttsx3.init()
-    
     # Generate a unique filename for the audio file
     filename = f"{uuid.uuid4().hex}.{audio_format}"
-    
+
     # Define the output file path
     output_file = os.path.join(app.config['STATIC_FOLDER'], filename)
-    
-    # Save the text as audio
-    engine.save_to_file(text, output_file)
-    engine.runAndWait()
-    
+
+    # Create a gTTS object and save the text as audio
+    tts = gTTS(text=text, lang='en')
+    tts.save(output_file)
+
     # Return the unique filename
     return filename
+
 
 @app.route('/')
 def index():
