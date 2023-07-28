@@ -35,7 +35,7 @@ def index():
     languages = tts_langs()
     languages_dict = {lang_code: {'name': lang_name} for lang_code, lang_name in languages.items()}
     formats = list(app.config['AVAILABLE_FORMATS'])
-    return render_template('index.html', languages=languages_dict, formats=formats, language="en")
+    return render_template('index.html', languages=languages_dict, formats=formats)
 
 @app.route('/upload', methods=['POST'])
 def upload():
