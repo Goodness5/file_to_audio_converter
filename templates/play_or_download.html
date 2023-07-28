@@ -2,11 +2,30 @@
 <html>
 <head>
     <title>Play or Download Audio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Play or Download Audio</h1>
-    <p>Your file has been converted. What would you like to do?</p>
-    <a href="{{ url_for('play', filename=filename) }}">Play Audio</a> |
-    <a href="{{ url_for('download', filename=filename) }}" download>Download Audio</a>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Play or Download Audio</h1>
+                <p class="text-center">Your file has been converted. What would you like to do?</p>
+                <div class="d-flex justify-content-center">
+                    <a href="{{ url_for('play', filename=filename) }}" class="btn btn-primary me-3">
+                        <i class="bi bi-play-fill me-2"></i> Play Audio
+                    </a>
+                    <a href="{{ url_for('download', filename=filename) }}" class="btn btn-primary" download>
+                        <i class="bi bi-download me-2"></i> Download Audio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-LAfzSmERf8ZLlZv81pPrJTM9m0XdwV3b2b1sZ8kHYz4RkkAe2JLi/1g8FlGcfw/Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
 </body>
 </html>
